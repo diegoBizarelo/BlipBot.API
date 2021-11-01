@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlipBot.API.Controllers
 {
-    [Route("api/bitbot")]
+    [Route("api/blipbot")]
     public class BlipBotController : MainController
     {
         private readonly IRequestGitHubService _requestGitHubService;
@@ -17,7 +17,7 @@ namespace BlipBot.API.Controllers
             _requestGitHubService = requestGitHubService;
         }
 
-        [HttpGet("obter-informacao")]
+        [HttpGet]
         public async Task<IActionResult> ObterInformacao()
         
         {

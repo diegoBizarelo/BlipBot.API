@@ -30,14 +30,7 @@ namespace BlipBot.API.Service
         }
         public void Dispose()
         {
-        }
-    }
-
-    public static class AddConfiguration
-    {
-        public static void SetAppSettings(this IConfiguration configuration)
-        {
-            configuration["a"] = "a";
+            // Method intentionally left empty.
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -40,7 +41,7 @@ namespace BlipBot.API.Service
 
             IConfiguration config = configBuilder.AddInMemoryCollection(appSett).Build();
 
-            httpCliente.Setup(h => h.SendAsync(It.IsAny<HttpRequestMessage>()))
+            httpCliente.Setup(h => h.SendAsync(It.IsAny<HttpRequestMessage>(), It.IsAny<CancellationToken>()))
                 .Returns(Task.FromResult(new HttpResponseMessage() { StatusCode = HttpStatusCode.OK, Content = new StringContent(repo.ToString()) }));
 
             http.Setup(h => h.CreateClient(It.IsAny<string>())).Returns(httpCliente.Object);
